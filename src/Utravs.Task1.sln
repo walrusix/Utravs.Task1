@@ -11,6 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Application", "02 - Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utravs.Task1.Application", "Utravs.Task1.Application\Utravs.Task1.Application.csproj", "{06962D74-A6A0-4272-B3CB-6F62056D5B1A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Infrastructure", "03 - Infrastructure", "{7263E37C-029E-433E-AB8A-8B129D13C3AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utravs.Task1.Infrastructure", "Utravs.Task1.Infrastructure\Utravs.Task1.Infrastructure.csproj", "{BA6F6D62-AF4A-4352-AE21-8EBB02DAEA6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - EndPoints", "04 - EndPoints", "{622EF8A4-8B8F-4E45-91DA-2A38CC08A97D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utravs.Task1.EndPoints.WebApi", "Utravs.Task1.EndPoints.WebApi\Utravs.Task1.EndPoints.WebApi.csproj", "{109D06FC-6F73-4958-BE71-97DABF853B1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +33,14 @@ Global
 		{06962D74-A6A0-4272-B3CB-6F62056D5B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06962D74-A6A0-4272-B3CB-6F62056D5B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06962D74-A6A0-4272-B3CB-6F62056D5B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA6F6D62-AF4A-4352-AE21-8EBB02DAEA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA6F6D62-AF4A-4352-AE21-8EBB02DAEA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA6F6D62-AF4A-4352-AE21-8EBB02DAEA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA6F6D62-AF4A-4352-AE21-8EBB02DAEA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{109D06FC-6F73-4958-BE71-97DABF853B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{109D06FC-6F73-4958-BE71-97DABF853B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{109D06FC-6F73-4958-BE71-97DABF853B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{109D06FC-6F73-4958-BE71-97DABF853B1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4E726CE8-0531-4B23-BE85-7A2B65E1D192} = {AEA9D6EA-0E23-442A-BF31-857176C6100B}
 		{06962D74-A6A0-4272-B3CB-6F62056D5B1A} = {0EFCEC54-A7A7-4F0B-BB69-355364166B3D}
+		{BA6F6D62-AF4A-4352-AE21-8EBB02DAEA6F} = {7263E37C-029E-433E-AB8A-8B129D13C3AF}
+		{109D06FC-6F73-4958-BE71-97DABF853B1B} = {622EF8A4-8B8F-4E45-91DA-2A38CC08A97D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C9FF9E9-3C53-499E-AB42-428007429C61}
