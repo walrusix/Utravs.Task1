@@ -9,7 +9,7 @@ namespace Utravs.Task1.Application.IRepository
 {
     public interface IBookingRepository
     {
-        Task<int> BookAsync(int flightNumber, int passengerId);
+        Task<bool> BookAsync(int flightId, int passengerId,int seatNumber,CancellationToken cancellationToken);
         Task<List<Booking>> GetAsync(int flightId);
     }
 }

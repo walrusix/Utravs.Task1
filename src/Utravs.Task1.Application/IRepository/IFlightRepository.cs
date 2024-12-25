@@ -12,6 +12,6 @@ namespace Utravs.Task1.Application.IRepository
     {
         Task<int> CreateAsync(Flight flight, CancellationToken cancellationToken);
         Task<Gridify.Paging<Flight>> GetAsync(GridifyQuery gQuery, CancellationToken cancellationToken);
-        Task UpdateSeatAsync(int flightNumber, int seatsCount, CancellationToken cancellationToken);
+        Task<bool> UpdateSeatAsync(int flightNumber, int seatsCount, CancellationToken cancellationToken);
     }
 }
