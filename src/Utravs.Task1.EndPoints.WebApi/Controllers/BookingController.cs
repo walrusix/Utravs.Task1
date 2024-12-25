@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Utravs.Task1.Application.Commands;
 using Utravs.Task1.Application.Queries;
 using Utravs.Task1.Application.ViewModels.Booking;
+using Utravs.Task1.EndPoints.WebApi.Filters;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Utravs.Task1.EndPoints.WebApi.Controllers
 {
     [ApiController]
+    [ApiResultFilter]
     [Route("[controller]")]
     public class BookingController : ControllerBase
     {

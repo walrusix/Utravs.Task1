@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using Utravs.Task1.Application.Commands;
 using Utravs.Task1.Application.Queries;
 using Utravs.Task1.Application.ViewModels.Flight;
+using Utravs.Task1.EndPoints.WebApi.Filters;
 
 namespace Utravs.Task1.EndPoints.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiResultFilter]
     public class FlightController : ControllerBase
     {
         private readonly IMediator _mediator;
