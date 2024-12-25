@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Utravs.Task1.Application.Commands;
+using Utravs.Task1.Application.Queries;
 using Utravs.Task1.Application.ViewModels.Booking;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -22,7 +23,7 @@ namespace Utravs.Task1.EndPoints.WebApi.Controllers
         {
             var command = new BookingBookCommand
             {
-                FlightId = model.FlightNumber,
+                FlightNumber = model.FlightNumber,
                 SeatNumber = model.SeatNumber,
                 PassengerId = model.PassengerId
             };
@@ -32,10 +33,10 @@ namespace Utravs.Task1.EndPoints.WebApi.Controllers
 
 
         [HttpGet("{flightNumber}")]
-        public async Task<IActionResult> GetBookingForSpecificReservation([FromRoute] int flightNumber,
+        public async Task<IActionResult> GetAllBookingForSpecificFlight([FromRoute] string flightNumber,
             CancellationToken cancellationToken)
         {
-            var query = flightNumber;
+            var query = new GetAllBookingForSpecificFlightQuery { FlightNumber = flightNumber };
             var result = _mediator.Send(query,cancellationToken);
             return Ok(result);
         }

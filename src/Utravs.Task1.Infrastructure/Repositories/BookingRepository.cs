@@ -18,11 +18,15 @@ namespace Utravs.Task1.Infrastructure.Repositories
         {
             _applicationDbContext = applicationDbContext;
         }
-        public async Task<bool> BookAsync(int flightId, int passengerId,int seatNumber,CancellationToken cancellationToken)
+        public async Task<bool> BookAsync(string flightNumber, int passengerId,int seatNumber,CancellationToken cancellationToken)
         {
+            var flight = await _applicationDbContext
+                .Flights
+                .Where(p => p.FlightNumber == flightNumber)
+                .FirstOrDefaultAsync(cancellationToken);
             var availableBooking = await _applicationDbContext
                 .Bookings
-                .Where(p => p.FlightId == flightId && p.SeatNumber != seatNumber)
+                .Where(p => p.Flight.FlightNumber == flightNumber && p.SeatNumber != seatNumber)
                 .AnyAsync(cancellationToken);
             if (availableBooking)
             {
@@ -30,7 +34,7 @@ namespace Utravs.Task1.Infrastructure.Repositories
                     .Bookings
                     .AddAsync(new Entities.Booking
                     {
-                        FlightId = flightId,
+                        FlightId = flight.Id,
                         BookingDate = DateTime.Now,
                         PassengerId = passengerId,
                         SeatNumber = seatNumber
@@ -41,9 +45,21 @@ namespace Utravs.Task1.Infrastructure.Repositories
             return false;
         }
 
-        public Task<List<Booking>> GetAsync(int flightId)
+        public async Task<List<Booking>> GetAsync(string flightNumber,CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await _applicationDbContext
+                .Bookings
+                .AsNoTracking()
+                .Where(p => p.Flight.FlightNumber == flightNumber)
+                .Select(p => new Booking
+                {
+                    BookingDate = p.BookingDate,
+                    FlightId = p.FlightId,
+                    Id = p.Id,
+                    PassengerId = p.PassengerId,
+                    SeatNumber = p.SeatNumber
+                })
+                .ToListAsync(cancellationToken);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Utravs.Task1.Application.Handlers
         }
         public async Task<bool> Handle(BookingBookCommand request, CancellationToken cancellationToken)
         {
-            return await _bookingRepository.BookAsync(request.FlightId, request.PassengerId,request.SeatNumber, cancellationToken);
+            return await _bookingRepository.BookAsync(request.FlightNumber, request.PassengerId,request.SeatNumber, cancellationToken);
         }
     }
 }
