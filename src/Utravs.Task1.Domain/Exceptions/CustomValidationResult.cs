@@ -16,8 +16,12 @@ namespace Utravs.Task1.Domain.Exceptions
         ValueMustBePositiveNumber = 2,
         [Display(Name = "این فیلد الزامی می باشد!")]
         ThisFieldIsRequired = 3,
-        [Display(Name = "فرمت وارد شده صحیح نمی باشد!")]
+        [Display(Name = "فرمت وارد شده برای این فیلد صحیح نمی باشد!")]
         InvalidFormat = 4,
+        [Display(Name = "مقدار وارد شده برای این فیلد صحیح نمی باشد!")]
+        InvalidValue = 5,
+        [Display(Name = "تعداد صندلی موردنظر موجود نمی باشد!")]
+        ThereIsNoEnoughSeats = 6,
 
     }
 }

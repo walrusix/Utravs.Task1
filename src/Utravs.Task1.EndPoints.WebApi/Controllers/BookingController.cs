@@ -30,7 +30,7 @@ namespace Utravs.Task1.EndPoints.WebApi.Controllers
                 PassengerId =(int) model.PassengerId
             };
             var result = _mediator.Send(command, cancellationToken);
-            return Ok(result);
+            return Created("SomeAddressToRetriveThisBook",result);
         }
 
 

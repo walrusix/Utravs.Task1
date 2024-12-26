@@ -12,5 +12,6 @@ namespace Utravs.Task1.Application.IRepository
     {
         Task<int> CreateAsync(Domain.Domain.Passenger passenger, CancellationToken cancellationToken);
         Task<Paging<Passenger>> GetAsync(GridifyQuery gQuery, CancellationToken cancellationToken);
+        Task<bool> CheckExistAsync(int id, CancellationToken cancellationToken);
     }
 }

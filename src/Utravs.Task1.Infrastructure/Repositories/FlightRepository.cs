@@ -56,7 +56,22 @@ namespace Utravs.Task1.Infrastructure.Repositories
 
                 })
                 .GridifyAsync(gQuery, cancellationToken);
+        }
 
+        public async Task<bool> CheckExistAsync(string flightNumber, CancellationToken cancellationToken)
+        {
+            return await _applicationDbContext
+                .Flights
+                .AsNoTracking()
+                .AnyAsync(p=>p.FlightNumber== flightNumber, cancellationToken);
+        }
+
+        public async Task<bool> CheckAvailableSeats(string flightNumber, int availableSeats, CancellationToken cancellationToken)
+        {
+            return await _applicationDbContext
+                .Flights
+                .AsNoTracking()
+                .AnyAsync(p => p.FlightNumber == flightNumber && p.AvailableSeats>= availableSeats, cancellationToken);
         }
 
         public async Task<bool> UpdateSeatAsync(int flightNumber, int seatsCount, CancellationToken cancellationToken)

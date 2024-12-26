@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gridify;
 using Gridify.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using Utravs.Task1.Application.IRepository;
 using Utravs.Task1.Domain.Domain;
 using Utravs.Task1.Infrastructure.DbContext;
@@ -45,7 +46,13 @@ namespace Utravs.Task1.Infrastructure.Repositories
                     PassportNumber = p.PassportNumber
                 })
                 .GridifyAsync(gQuery, cancellationToken);
+        }
 
+        public async Task<bool> CheckExistAsync(int id, CancellationToken cancellationToken)
+        {
+            return await _applicationDbContext
+                .Passengers
+                .AnyAsync(p=>p.Id==id, cancellationToken);
         }
     }
 }

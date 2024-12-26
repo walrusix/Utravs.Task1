@@ -26,7 +26,7 @@ namespace Utravs.Task1.Infrastructure.Repositories
                 .FirstOrDefaultAsync(cancellationToken);
             var availableBooking = await _applicationDbContext
                 .Bookings
-                .Where(p => p.Flight.FlightNumber == flightNumber && p.SeatNumber != seatNumber)
+                .Where(p => p.Flight.FlightNumber == flightNumber && p.SeatNumber >= seatNumber)
                 .AnyAsync(cancellationToken);
             if (availableBooking)
             {
@@ -39,6 +39,8 @@ namespace Utravs.Task1.Infrastructure.Repositories
                         PassengerId = passengerId,
                         SeatNumber = seatNumber
                     }, cancellationToken);
+                flight.AvailableSeats -=seatNumber;
+                _applicationDbContext.Flights.Update(flight);
                 await _applicationDbContext.SaveChangesAsync(cancellationToken);
                 return true;
             }
