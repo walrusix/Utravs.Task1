@@ -12,8 +12,12 @@ namespace Utravs.Task1.Domain.Exceptions
 
         [Display(Name = "Value {Param0} Be {Param1} Negative!")]
         Test1 = 1,
-        [Display(Name = "تعداد صندلی ها باید بیش از صفر باشد!")]
-        SeatNumberMustBePositiveNumber = 2,
-        
+        [Display(Name = "مقدار این فیلد باید بیش از صفر باشد!")]
+        ValueMustBePositiveNumber = 2,
+        [Display(Name = "این فیلد الزامی می باشد!")]
+        ThisFieldIsRequired = 3,
+        [Display(Name = "فرمت وارد شده صحیح نمی باشد!")]
+        InvalidFormat = 4,
+
     }
 }

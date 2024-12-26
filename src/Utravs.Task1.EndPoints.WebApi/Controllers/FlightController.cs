@@ -32,13 +32,13 @@ namespace Utravs.Task1.EndPoints.WebApi.Controllers
         {
             var command = new FlightCreateCommand
             {
-                ArrivalTime = model.ArrivalTime,
-                AvailableSeats = model.AvailableSeats,
-                DepartureTime = model.DepartureTime,
+                ArrivalTime = (DateTime)model.ArrivalTime,
+                AvailableSeats = (int)model.AvailableSeats,
+                DepartureTime = (DateTime)model.DepartureTime,
                 Destination = model.Destination,
                 FlightNumber = model.FlightNumber,
                 Origin = model.Origin,
-                Price = model.Price,
+                Price =(decimal) model.Price,
             };
             var result = _mediator.Send(command, cancellationToken);
             return Created("",result);

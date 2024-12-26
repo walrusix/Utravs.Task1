@@ -24,7 +24,8 @@ namespace Utravs.Task1.Application.Handlers
             {
                 Email = request.Email,
                 FullName = request.FullName,
-                PassportNumber = request.PassportNumber
+                PassportNumber = request.PassportNumber,
+                PhoneNumber = request.PhoneNumber
             }, cancellationToken);
         }
     }

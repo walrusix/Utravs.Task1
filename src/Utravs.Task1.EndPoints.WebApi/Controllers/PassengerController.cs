@@ -26,7 +26,8 @@ namespace Utravs.Task1.EndPoints.WebApi.Controllers
             {
                 Email = model.Email,
                 FullName = model.FullName,
-                PassportNumber = model.PassportNumber
+                PassportNumber = model.PassportNumber,
+                PhoneNumber = model.PhoneNumber
             };
             var result = _mediator.Send(command, cancellationToken);
             return Ok(result);

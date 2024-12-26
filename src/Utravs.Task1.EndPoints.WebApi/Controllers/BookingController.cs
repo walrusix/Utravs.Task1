@@ -26,8 +26,8 @@ namespace Utravs.Task1.EndPoints.WebApi.Controllers
             var command = new BookingBookCommand
             {
                 FlightNumber = model.FlightNumber,
-                SeatNumber = model.SeatNumber,
-                PassengerId = model.PassengerId
+                SeatNumber =(int) model.SeatNumber,
+                PassengerId =(int) model.PassengerId
             };
             var result = _mediator.Send(command, cancellationToken);
             return Ok(result);

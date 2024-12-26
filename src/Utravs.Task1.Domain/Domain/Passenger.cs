@@ -12,5 +12,6 @@ namespace Utravs.Task1.Domain.Domain
         public string FullName { set; get; }
         public string Email { set; get; }
         public string PassportNumber { set; get; }
+        public string PhoneNumber { set; get; }
     }
 }
