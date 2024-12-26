@@ -9,10 +9,8 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Utravs.Task1.EndPoints.WebApi.Controllers
 {
-    [ApiController]
-    [ApiResultFilter]
-    [Route("[controller]")]
-    public class BookingController : ControllerBase
+
+    public class BookingController : EndUserBaseController
     {
         private readonly IMediator _mediator;
 

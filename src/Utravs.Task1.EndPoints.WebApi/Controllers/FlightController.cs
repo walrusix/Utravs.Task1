@@ -8,10 +8,8 @@ using Utravs.Task1.EndPoints.WebApi.Filters;
 
 namespace Utravs.Task1.EndPoints.WebApi.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    [ApiResultFilter]
-    public class FlightController : ControllerBase
+
+    public class FlightController : EndUserBaseController
     {
         private readonly IMediator _mediator;
 

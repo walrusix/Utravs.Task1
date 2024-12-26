@@ -8,10 +8,7 @@ using Utravs.Task1.EndPoints.WebApi.Filters;
 
 namespace Utravs.Task1.EndPoints.WebApi.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    [ApiResultFilter]
-    public class PassengerController : Controller
+    public class PassengerController : EndUserBaseController
     {
         private readonly IMediator _mediator;
 
