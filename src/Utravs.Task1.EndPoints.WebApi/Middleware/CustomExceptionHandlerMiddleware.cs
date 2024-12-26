@@ -43,6 +43,7 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
 
             catch (CustomException exception)
             {
+                apiStatusCode = CustomApiResultStatusCode.BadRequest;
                 if (exception.ValidationErrorResults != null)
                 {
                     foreach (var exceptionValidationErrorResult in exception.ValidationErrorResults)
@@ -140,7 +141,7 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
                     }
                     else if (exc.ValidationErrorResults.Any())
                     {
-                        httpStatusCode = HttpStatusCode.OK;
+                        httpStatusCode = HttpStatusCode.BadRequest;
                         result.Errors = exc.ValidationErrorResults;
                         result.StatusCode = CustomApiResultStatusCode.ValidationError;
                         result.Description = result.StatusCode.ToDisplay();

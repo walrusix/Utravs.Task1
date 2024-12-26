@@ -70,6 +70,7 @@ namespace Utravs.Task1.EndPoints.WebApi.ApiResult
             return new ApiResult(false, CustomApiResultStatusCode.NotFound, null);
         }
 
+
         public static implicit operator ApiResult(CreatedResult result)
         {
             return new ApiResult(true, CustomApiResultStatusCode.Success, null);

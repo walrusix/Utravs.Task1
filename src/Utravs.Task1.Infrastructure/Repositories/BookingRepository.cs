@@ -24,11 +24,11 @@ namespace Utravs.Task1.Infrastructure.Repositories
                 .Flights
                 .Where(p => p.FlightNumber == flightNumber)
                 .FirstOrDefaultAsync(cancellationToken);
-            var availableBooking = await _applicationDbContext
+            var unavailableBooking = await _applicationDbContext
                 .Bookings
-                .Where(p => p.Flight.FlightNumber == flightNumber && p.SeatNumber >= seatNumber)
+                .Where(p => p.Flight.FlightNumber == flightNumber && p.Flight.AvailableSeats < seatNumber)
                 .AnyAsync(cancellationToken);
-            if (availableBooking)
+            if (!unavailableBooking)
             {
                 await _applicationDbContext
                     .Bookings
@@ -49,7 +49,7 @@ namespace Utravs.Task1.Infrastructure.Repositories
 
         public async Task<List<Booking>> GetAsync(string flightNumber,CancellationToken cancellationToken)
         {
-            return await _applicationDbContext
+            var result =  await _applicationDbContext
                 .Bookings
                 .AsNoTracking()
                 .Where(p => p.Flight.FlightNumber == flightNumber)
@@ -62,6 +62,7 @@ namespace Utravs.Task1.Infrastructure.Repositories
                     SeatNumber = p.SeatNumber
                 })
                 .ToListAsync(cancellationToken);
+            return result;
         }
     }
 }
