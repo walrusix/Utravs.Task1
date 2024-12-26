@@ -41,7 +41,6 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
                 await _next(context);
             }
 
-
             catch (CustomException exception)
             {
                 if (exception.ValidationErrorResults != null)
@@ -60,8 +59,8 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
                             if (exceptionValidationErrorResult.Params != null)
                             {
                                 for (var paramCursor = 0;
-                                    paramCursor < exceptionValidationErrorResult.Params.Length;
-                                    paramCursor++)
+                                     paramCursor < exceptionValidationErrorResult.Params.Length;
+                                     paramCursor++)
 
                                 {
                                     exceptionValidationErrorResult.Description =
@@ -76,7 +75,7 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
                             }
                         }
 
-                        
+
                     }
                 }
                 else
@@ -97,6 +96,7 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
                         dic.Add("InnerException.Exception", exception.InnerException.Message);
                         dic.Add("InnerException.StackTrace", exception.InnerException.StackTrace);
                     }
+
                     if (exception.AdditionalData != null)
                         dic.Add("AdditionalData", JsonConvert.SerializeObject(exception.AdditionalData));
 
@@ -106,11 +106,12 @@ namespace Utravs.Task1.EndPoints.WebApi.Middleware
                 {
                     message = exception.Message;
                 }
+
                 await WriteToResponseAsync(exception);
             }
+
             catch (Exception exception)
             {
-
                 if (_env.IsDevelopment())
                 {
                     var dic = new Dictionary<string, string>

@@ -43,7 +43,8 @@ namespace Utravs.Task1.Infrastructure.Repositories
                 {
                     Email = p.Email,
                     FullName = p.FullName,
-                    PassportNumber = p.PassportNumber
+                    PassportNumber = p.PassportNumber,
+                    Id=p.Id
                 })
                 .GridifyAsync(gQuery, cancellationToken);
         }

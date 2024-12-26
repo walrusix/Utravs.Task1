@@ -24,7 +24,7 @@ builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(FlightCreateHandler).GetTypeInfo().Assembly)); var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.UseCustomExceptionHandler();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -37,5 +37,6 @@ if (app.Environment.IsDevelopment())
 
 
 app.MapControllers();
-
+app.UseCustomExceptionHandler();
 app.Run();
+

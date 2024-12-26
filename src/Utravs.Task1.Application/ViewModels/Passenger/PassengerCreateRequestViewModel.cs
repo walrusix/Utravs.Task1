@@ -17,7 +17,7 @@ namespace Utravs.Task1.Application.ViewModels.Passenger
         public string FullName { set; get; }
         public string Email { set; get; }
         public string PassportNumber { set; get; }
-        public string PhoneNumber { set; get; }
+        public string? PhoneNumber { set; get; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
