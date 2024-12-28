@@ -19,4 +19,5 @@ There are some tests in Tests Project. I know it doesnt coverage all of code.
 in Get methods you can pass Page Size and Page number, application returns that page and TotalCount.
 For filtering and Sort read these pages:
 https://alirezanet.github.io/Gridify/guide/filtering
+
 https://alirezanet.github.io/Gridify/guide/ordering
